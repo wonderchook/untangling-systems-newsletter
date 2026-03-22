@@ -3,50 +3,39 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Untangling Systems — A newsletter by Kate Chapman on engineering leadership, governance, and AI</title>
+    <title>Untangling Systems and Patterns</title>
     <meta
       name="description"
-      content="Untangling Systems is a newsletter by Kate Chapman about engineering leadership, socio-technical systems, governance, community, and AI developer enablement."
+      content="Untangling Systems and Patterns — notes on engineering leadership, governance and community, and AI developer enablement."
     />
     <meta
-      name="keywords"
-      content="engineering leadership, socio-technical systems, developer enablement, governance, community, AI teams, newsletter, Kate Chapman"
+      property="og:title"
+      content="Untangling Systems and Patterns"
     />
-    <meta name="author" content="Kate Chapman" />
-    <meta property="og:title" content="Untangling Systems" />
     <meta
       property="og:description"
-      content="A newsletter by Kate Chapman about engineering leadership, governance, community, and AI developer enablement."
+      content="Engineering leadership, governance and community, and AI developer enablement."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://untanglingsystems.io/" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="Untangling Systems — A newsletter by Kate Chapman"
-    />
-    <meta
-      name="twitter:description"
-      content="Notes on engineering leadership, socio-technical systems, governance, community, and AI developer enablement."
-    />
+    <meta name="author" content="Kate Chapman" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600&family=Manrope:wght@400;500;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <style>
       :root {
-        --bg: #e8d4f2;
-        --paper: rgba(255, 255, 255, 0.76);
-        --ink: #69369e;
-        --muted: #656565;
+        --lavender: #e8d4f2;
+        --purple: #69369e;
+        --purple-soft: #8a6bb3;
+        --white: #ffffff;
+        --gray: #656565;
         --line: rgba(105, 54, 158, 0.16);
-        --accent: #69369e;
-        --accent-soft: rgba(138, 107, 179, 0.14);
-        --accent-2: #8a6bb3;
-        --shadow: 0 24px 80px rgba(105, 54, 158, 0.14);
-        --max: 1180px;
+        --shadow: 0 20px 60px rgba(105, 54, 158, 0.12);
+        --max: 1120px;
       }
 
       * {
@@ -59,35 +48,16 @@
 
       body {
         margin: 0;
-        font-family: 'Manrope', sans-serif;
-        color: var(--ink);
+        font-family: 'Source Sans 3', sans-serif;
+        color: var(--purple);
         background:
-          radial-gradient(circle at top left, rgba(138, 107, 179, 0.22), transparent 35%),
-          radial-gradient(circle at 85% 18%, rgba(105, 54, 158, 0.18), transparent 26%),
-          linear-gradient(180deg, #f4ebf8 0%, #ead9f3 52%, #e8d4f2 100%);
+          radial-gradient(circle at top left, rgba(138, 107, 179, 0.18), transparent 34%),
+          linear-gradient(180deg, #f7f1fb 0%, #efe1f6 55%, #e8d4f2 100%);
         line-height: 1.6;
-      }
-
-      body::before {
-        content: '';
-        position: fixed;
-        inset: 0;
-        pointer-events: none;
-        opacity: 0.25;
-        background-image:
-          linear-gradient(rgba(105, 54, 158, 0.05) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(105, 54, 158, 0.05) 1px, transparent 1px);
-        background-size: 28px 28px;
-        mask-image: radial-gradient(circle at center, black 45%, transparent 100%);
       }
 
       a {
         color: inherit;
-      }
-
-      .page {
-        position: relative;
-        z-index: 1;
       }
 
       .wrap {
@@ -95,203 +65,162 @@
         margin: 0 auto;
       }
 
-      .topbar {
-        padding: 1.2rem 0 0;
+      .site-header {
+        padding: 1.25rem 0 0;
       }
 
-      .topbar-inner {
+      .site-header-inner {
         display: flex;
-        align-items: center;
         justify-content: space-between;
+        align-items: center;
         gap: 1rem;
         padding: 1rem 1.25rem;
         border: 1px solid var(--line);
         border-radius: 999px;
-        background: rgba(255, 255, 255, 0.68);
-        backdrop-filter: blur(12px);
-        box-shadow: 0 8px 24px rgba(105, 54, 158, 0.08);
+        background: rgba(255, 255, 255, 0.82);
+        backdrop-filter: blur(10px);
       }
 
       .brand {
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-        font-weight: 800;
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
-        font-size: 0.84rem;
-      }
-
-      .brand-mark {
-        width: 1.75rem;
-        height: 1.75rem;
-        display: inline-grid;
-        place-items: center;
-        border-radius: 50%;
-        background: linear-gradient(145deg, #69369e, #8a6bb3);
-        color: white;
         font-size: 0.9rem;
-        box-shadow: inset 0 1px 0 rgba(255,255,255,0.35);
-      }
-
-      .top-links {
-        display: flex;
-        gap: 1rem;
-        align-items: center;
-        color: var(--muted);
-        font-size: 0.95rem;
-      }
-
-      .top-links a {
-        text-decoration: none;
-      }
-
-      .cta-link {
-        padding: 0.7rem 1rem;
-        border-radius: 999px;
-        background: var(--ink);
-        color: white !important;
-      }
-
-      .hero {
-        padding: 3.25rem 0 2rem;
-      }
-
-      .hero-grid {
-        display: grid;
-        grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.75fr);
-        gap: 2rem;
-        align-items: stretch;
-      }
-
-      .hero-copy,
-      .hero-panel,
-      .section-card,
-      .topic-card,
-      .faq-item,
-      .closing-card {
-        border: 1px solid var(--line);
-        background: var(--paper);
-        backdrop-filter: blur(14px);
-        box-shadow: var(--shadow);
-      }
-
-      .hero-copy {
-        border-radius: 2rem;
-        padding: 2.5rem;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .hero-copy::after {
-        content: '';
-        position: absolute;
-        inset: auto -10% -25% 35%;
-        height: 220px;
-        background: radial-gradient(circle, rgba(138, 107, 179, 0.18), transparent 60%);
-        pointer-events: none;
-      }
-
-      .eyebrow {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.45rem 0.8rem;
-        border-radius: 999px;
-        background: rgba(255,255,255,0.6);
-        border: 1px solid rgba(138, 107, 179, 0.24);
-        color: var(--accent-2);
-        font-size: 0.8rem;
-        font-weight: 800;
+        font-weight: 700;
         letter-spacing: 0.08em;
         text-transform: uppercase;
       }
 
-      h1, h2, h3 {
-        font-family: 'Fraunces', serif;
-        line-height: 0.98;
+      .nav {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        color: var(--gray);
+      }
+
+      .nav a {
+        text-decoration: none;
+      }
+
+      .button-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.8rem 1.15rem;
+        border-radius: 999px;
+        text-decoration: none;
+        background: linear-gradient(135deg, var(--purple), var(--purple-soft));
+        color: var(--white);
+        font-weight: 700;
+        box-shadow: 0 14px 30px rgba(105, 54, 158, 0.18);
+      }
+
+      .hero {
+        padding: 4rem 0 2.5rem;
+      }
+
+      .hero-shell {
+        display: grid;
+        grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.75fr);
+        gap: 1.5rem;
+        align-items: stretch;
+      }
+
+      .hero-main,
+      .subscribe-card,
+      .topic-card,
+      .about-card {
+        background: rgba(255, 255, 255, 0.78);
+        border: 1px solid var(--line);
+        box-shadow: var(--shadow);
+      }
+
+      .hero-main {
+        border-radius: 2rem;
+        padding: 2.5rem;
+      }
+
+      .eyebrow {
+        display: inline-block;
+        margin-bottom: 1rem;
+        padding: 0.45rem 0.8rem;
+        border-radius: 999px;
+        border: 1px solid rgba(138, 107, 179, 0.22);
+        background: rgba(232, 212, 242, 0.36);
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--purple-soft);
+      }
+
+      h1,
+      h2,
+      h3 {
         margin: 0;
-        font-weight: 400;
+        font-family: 'Cormorant Garamond', serif;
+        font-weight: 600;
+        letter-spacing: -0.03em;
+        line-height: 0.98;
       }
 
       h1 {
-        margin-top: 1rem;
-        font-size: clamp(3.4rem, 8vw, 6.7rem);
-        letter-spacing: -0.06em;
+        font-size: clamp(3.5rem, 8vw, 6.2rem);
+        max-width: 10ch;
       }
 
-      .hero-sub {
-        max-width: 50rem;
-        margin: 1.35rem 0 0;
-        font-size: clamp(1.08rem, 1.7vw, 1.35rem);
-        color: var(--muted);
+      .hero-copy {
+        margin: 1.25rem 0 0;
+        max-width: 42rem;
+        font-size: 1.25rem;
+        color: var(--gray);
       }
 
-      .hero-points {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 0.85rem;
-        margin: 1.8rem 0 0;
-      }
-
-      .hero-points div {
-        padding: 0.95rem 1rem;
+      .hero-note {
+        margin-top: 1.5rem;
+        padding-top: 1.2rem;
         border-top: 1px solid var(--line);
-        background: rgba(255,255,255,0.45);
-        min-height: 100%;
+        color: var(--gray);
+        font-size: 1rem;
       }
 
-      .hero-points strong {
-        display: block;
-        margin-bottom: 0.2rem;
-        font-size: 0.94rem;
-      }
-
-      .hero-panel {
+      .subscribe-card {
         border-radius: 2rem;
         padding: 1.4rem;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
         gap: 1rem;
       }
 
-      .panel-label {
-        font-size: 0.8rem;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: var(--muted);
-        font-weight: 800;
-      }
-
-      .form-card {
+      .subscribe-panel {
         border-radius: 1.5rem;
-        padding: 1.2rem;
-        background: rgba(255,255,255,0.75);
-        border: 1px solid rgba(35,27,22,0.08);
+        padding: 1.3rem;
+        background: linear-gradient(180deg, rgba(232, 212, 242, 0.58), rgba(255, 255, 255, 0.96));
+        border: 1px solid rgba(138, 107, 179, 0.16);
       }
 
-      .form-card h3 {
-        font-size: 2rem;
-        margin-bottom: 0.75rem;
+      .subscribe-panel h2 {
+        font-size: 2.1rem;
+        margin-bottom: 0.55rem;
       }
 
-      .form-card p {
-        margin: 0 0 1rem;
-        color: var(--muted);
+      .subscribe-panel p,
+      .small,
+      .topic-card p,
+      .about-card p,
+      .footer {
+        color: var(--gray);
       }
 
       form {
         display: grid;
-        gap: 0.8rem;
+        gap: 0.75rem;
+        margin-top: 1rem;
       }
 
       input[type='email'] {
         width: 100%;
         padding: 0.95rem 1rem;
         border-radius: 999px;
-        border: 1px solid rgba(35,27,22,0.16);
-        background: #fffdf9;
+        border: 1px solid rgba(105, 54, 158, 0.18);
+        background: var(--white);
         font: inherit;
       }
 
@@ -301,548 +230,189 @@
         cursor: pointer;
         padding: 0.95rem 1.15rem;
         border-radius: 999px;
-        background: linear-gradient(135deg, #69369e, #8a6bb3);
-        color: white;
+        background: linear-gradient(135deg, var(--purple), var(--purple-soft));
+        color: var(--white);
         font: inherit;
-        font-weight: 800;
-        letter-spacing: 0.02em;
-        box-shadow: 0 16px 30px rgba(105, 54, 158, 0.24);
+        font-weight: 700;
       }
 
-      .micro {
-        font-size: 0.9rem;
-        color: var(--muted);
+      .section {
+        padding: 1rem 0 1.6rem;
       }
 
-      .issue-preview {
-        display: grid;
-        gap: 0.8rem;
+      .section-heading {
+        margin-bottom: 1.1rem;
       }
 
-      .issue-row {
-        display: grid;
-        gap: 0.3rem;
-        padding: 0.9rem 1rem;
-        border-radius: 1.1rem;
-        background: rgba(255,255,255,0.54);
-        border: 1px solid rgba(35,27,22,0.08);
-      }
-
-      .issue-row strong {
-        font-size: 0.96rem;
-      }
-
-      main section {
-        padding: 1.5rem 0;
-      }
-
-      .section-head {
-        display: grid;
-        grid-template-columns: minmax(0, 0.7fr) minmax(0, 1fr);
-        gap: 1.5rem;
-        margin-bottom: 1.2rem;
-        align-items: end;
-      }
-
-      .section-kicker {
-        color: var(--accent-2);
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        font-size: 0.8rem;
-        font-weight: 800;
-        margin-bottom: 0.65rem;
-      }
-
-      h2 {
-        font-size: clamp(2.3rem, 4vw, 3.8rem);
-        letter-spacing: -0.05em;
-      }
-
-      .section-lead {
-        color: var(--muted);
-        font-size: 1.05rem;
-        margin: 0;
-      }
-
-      .architecture-grid,
-      .topics-grid,
-      .signals-grid,
-      .faq-grid {
-        display: grid;
-        gap: 1rem;
-      }
-
-      .architecture-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-
-      .section-card {
-        border-radius: 1.6rem;
-        padding: 1.35rem;
-      }
-
-      .section-card .num {
-        display: inline-flex;
-        width: 2rem;
-        height: 2rem;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        margin-bottom: 0.9rem;
-        background: var(--accent-soft);
-        color: var(--accent);
-        font-weight: 800;
-      }
-
-      .section-card h3,
-      .topic-card h3,
-      .faq-item h3,
-      .closing-card h3 {
-        font-size: 1.55rem;
-        margin-bottom: 0.6rem;
-      }
-
-      .section-card p,
-      .topic-card p,
-      .faq-item p,
-      .closing-card p,
-      li {
-        color: var(--muted);
+      .section-heading h2 {
+        font-size: clamp(2.3rem, 4vw, 3.6rem);
       }
 
       .topics-grid {
+        display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
       }
 
       .topic-card {
-        border-radius: 1.7rem;
-        padding: 1.4rem;
-        position: relative;
-        overflow: hidden;
+        border-radius: 1.6rem;
+        padding: 1.5rem;
+        min-height: 100%;
       }
 
-      .topic-card::before {
-        content: attr(data-tag);
-        position: absolute;
-        top: 1rem;
-        right: 1rem;
-        font-size: 0.76rem;
-        font-weight: 800;
-        letter-spacing: 0.08em;
-        color: rgba(32,28,26,0.38);
-        text-transform: uppercase;
+      .topic-card h3 {
+        font-size: 2rem;
+        margin-bottom: 0.7rem;
       }
 
-      .topic-card ul {
-        padding-left: 1.1rem;
-        margin: 0.7rem 0 0;
-      }
-
-      .signals-grid {
-        grid-template-columns: 1.15fr 0.85fr;
-      }
-
-      .signal-list {
+      .about-card {
+        border-radius: 1.8rem;
+        padding: 1.6rem;
         display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 0.75rem;
-      }
-
-      .signal {
-        padding: 1rem;
-        border-radius: 1.1rem;
-        background: rgba(255,255,255,0.45);
-        border: 1px solid rgba(35,27,22,0.08);
-      }
-
-      .signal strong {
-        display: block;
-        margin-bottom: 0.35rem;
-      }
-
-      .quote-block {
-        padding: 1.4rem;
-        border-radius: 1.5rem;
-        background: linear-gradient(180deg, rgba(138,107,179,0.16), rgba(255,255,255,0.66));
-        border: 1px solid rgba(138,107,179,0.18);
-      }
-
-      .quote-block p {
-        font-family: 'Fraunces', serif;
-        font-size: 1.7rem;
-        line-height: 1.15;
-        margin: 0 0 1rem;
-      }
-
-      .faq-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .faq-item {
-        border-radius: 1.4rem;
-        padding: 1.3rem;
-      }
-
-      .closing-card {
-        border-radius: 2rem;
-        padding: 2rem;
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(300px, 0.65fr);
-        gap: 1.3rem;
+        grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.7fr);
+        gap: 1.2rem;
         align-items: center;
       }
 
+      .about-card h2 {
+        font-size: clamp(2.2rem, 4vw, 3.3rem);
+        margin-bottom: 0.7rem;
+      }
+
+      .about-side {
+        padding: 1rem 1.1rem;
+        border-radius: 1.25rem;
+        background: rgba(232, 212, 242, 0.38);
+        border: 1px solid rgba(138, 107, 179, 0.16);
+      }
+
       .footer {
-        padding: 1.5rem 0 3rem;
-        color: var(--muted);
+        padding: 1rem 0 3rem;
         font-size: 0.95rem;
       }
 
-      .footer-inner {
-        display: flex;
-        justify-content: space-between;
-        gap: 1rem;
-        flex-wrap: wrap;
-      }
-
-      @media (max-width: 980px) {
-        .hero-grid,
-        .section-head,
-        .signals-grid,
-        .closing-card,
-        .architecture-grid,
+      @media (max-width: 920px) {
+        .hero-shell,
         .topics-grid,
-        .faq-grid,
-        .hero-points,
-        .signal-list {
+        .about-card {
           grid-template-columns: 1fr;
         }
 
-        .topbar-inner {
-          border-radius: 1.25rem;
-          align-items: flex-start;
+        .site-header-inner {
           flex-direction: column;
+          align-items: flex-start;
+          border-radius: 1.5rem;
         }
 
-        h1 {
-          font-size: clamp(3rem, 16vw, 5rem);
+        .nav {
+          flex-wrap: wrap;
         }
 
-        .hero-copy,
-        .hero-panel,
-        .closing-card {
-          padding: 1.5rem;
+        .hero-main,
+        .subscribe-card,
+        .about-card {
+          padding: 1.35rem;
         }
       }
     </style>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "Untangling Systems",
-        "url": "https://untanglingsystems.io/",
-        "description": "A newsletter by Kate Chapman about engineering leadership, socio-technical systems, governance, community, and AI developer enablement.",
-        "author": {
-          "@type": "Person",
-          "name": "Kate Chapman"
-        }
-      }
-    </script>
   </head>
   <body>
-    <div class="page">
-      <header class="topbar">
-        <div class="wrap topbar-inner">
-          <div class="brand">
-            <span class="brand-mark">∿</span>
-            <span>Untangling Systems</span>
+    <header class="site-header">
+      <div class="wrap site-header-inner">
+        <div class="brand">Untangling Systems and Patterns</div>
+        <nav class="nav" aria-label="Primary navigation">
+          <a href="#topics">Topics</a>
+          <a href="#about">About</a>
+          <a class="button-link" href="#subscribe">Subscribe</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="wrap hero-shell">
+          <div class="hero-main">
+            <div class="eyebrow">Newsletter</div>
+            <h1>Untangling Systems and Patterns</h1>
+            <p class="hero-copy">
+              Notes on how people, technology, process, and power interact inside organizations and communities.
+            </p>
+            <p class="hero-note">
+              A newsletter by Kate Chapman on engineering leadership, governance and community, and AI developer enablement.
+            </p>
           </div>
-          <div class="top-links">
-            <a href="#architecture">Structure</a>
-            <a href="#topics">Topics</a>
-            <a href="#faq">FAQ</a>
-            <a class="cta-link" href="#subscribe">Subscribe</a>
-          </div>
-        </div>
-      </header>
 
-      <main>
-        <section class="hero">
-          <div class="wrap hero-grid">
-            <div class="hero-copy">
-              <span class="eyebrow">Newsletter by Kate Chapman</span>
-              <h1>Untangling the systems beneath how teams actually work.</h1>
-              <p class="hero-sub">
-                A publication about engineering leadership, socio-technical systems, governance,
-                community, and AI developer enablement — for people trying to make organizations,
-                tools, and collaboration more humane, effective, and resilient.
-              </p>
-              <div class="hero-points">
-                <div>
-                  <strong>For thoughtful builders</strong>
-                  Leaders, facilitators, staff engineers, operators, and community stewards.
-                </div>
-                <div>
-                  <strong>Grounded, not hypey</strong>
-                  Practical observations about how systems behave when real people are inside them.
-                </div>
-                <div>
-                  <strong>Written with a point of view</strong>
-                  Less generic advice. More pattern recognition, tension, and useful clarity.
-                </div>
-              </div>
-            </div>
-
-            <aside class="hero-panel" id="subscribe">
-              <div>
-                <div class="panel-label">Subscribe</div>
-                <div class="form-card">
-                  <h3>Get the next issue.</h3>
-                  <p>
-                    Essays, notes, and frameworks on leadership, systems, governance, and AI-enabled work.
-                  </p>
-                  <form>
-                    <input type="email" placeholder="Email address" aria-label="Email address" />
-                    <button type="submit">Subscribe with ConvertKit</button>
-                  </form>
-                  <p class="micro">
-                    Replace this form with your ConvertKit embed or action URL when you wire it up.
-                  </p>
-                </div>
-              </div>
-
-              <div>
-                <div class="panel-label">What readers can expect</div>
-                <div class="issue-preview">
-                  <div class="issue-row">
-                    <strong>Onboarding as system design</strong>
-                    Why joining a team reveals more about an organization than its stated values ever will.
-                  </div>
-                  <div class="issue-row">
-                    <strong>What governance feels like from inside</strong>
-                    How decision-making structures create trust, drift, conflict, or belonging.
-                  </div>
-                  <div class="issue-row">
-                    <strong>AI enablement beyond tooling</strong>
-                    What changes when teams redesign workflows instead of just dropping in assistants.
-                  </div>
-                </div>
-              </div>
-            </aside>
-          </div>
-        </section>
-
-        <section id="architecture">
-          <div class="wrap">
-            <div class="section-head">
-              <div>
-                <div class="section-kicker">Recommended page architecture</div>
-                <h2>A landing page that behaves like a publication, not a placeholder.</h2>
-              </div>
-              <p class="section-lead">
-                The page should convert quickly, but it also needs enough editorial weight to make the
-                newsletter feel credible, specific, and worth returning to.
-              </p>
-            </div>
-            <div class="architecture-grid">
-              <article class="section-card">
-                <div class="num">1</div>
-                <h3>Hero with a sharp promise</h3>
-                <p>
-                  Lead with what the newsletter is about, who it’s for, and why this perspective matters.
-                  The current site jumps too quickly to broad themes without a strong framing line.
-                </p>
-              </article>
-              <article class="section-card">
-                <div class="num">2</div>
-                <h3>Topic pillars with specificity</h3>
-                <p>
-                  Keep the core themes, but make them feel like recurring editorial lanes rather than generic categories.
-                  Specificity improves both conversion and SEO.
-                </p>
-              </article>
-              <article class="section-card">
-                <div class="num">3</div>
-                <h3>Why subscribe now</h3>
-                <p>
-                  Show what kinds of patterns, questions, and practical insights readers will get. Repeat the CTA after this.
-                </p>
-              </article>
-              <article class="section-card">
-                <div class="num">4</div>
-                <h3>Author-backed credibility</h3>
-                <p>
-                  Make Kate visible as the author and point of view behind the publication, without turning the page into a personal bio site.
-                </p>
-              </article>
-              <article class="section-card">
-                <div class="num">5</div>
-                <h3>FAQ / fit section</h3>
-                <p>
-                  A lightweight FAQ helps answer friction questions, adds scannable structure, and broadens semantic coverage for search.
-                </p>
-              </article>
-              <article class="section-card">
-                <div class="num">6</div>
-                <h3>Repeated subscribe path</h3>
-                <p>
-                  Don’t make readers scroll back up. Keep a primary signup path in the hero and another near the bottom of the page.
-                </p>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <section id="topics">
-          <div class="wrap">
-            <div class="section-head">
-              <div>
-                <div class="section-kicker">Draft copy and topic framing</div>
-                <h2>Three editorial lanes, sharpened so they actually pull people in.</h2>
-              </div>
-              <p class="section-lead">
-                These are still the same core areas from the current page — just with more energy, clarity, and searchable language.
-              </p>
-            </div>
-            <div class="topics-grid">
-              <article class="topic-card" data-tag="Leadership">
-                <h3>Engineering leadership</h3>
-                <p>
-                  How teams form, change, stall, recover, and grow — especially at the messy intersection of people, process, and technology.
-                </p>
-                <ul>
-                  <li>Joining a team and reading its real operating system</li>
-                  <li>Creating clarity without flattening complexity</li>
-                  <li>Transforming how teams make decisions and coordinate work</li>
-                </ul>
-              </article>
-              <article class="topic-card" data-tag="Governance">
-                <h3>Governance and community</h3>
-                <p>
-                  The structures that shape participation: who gets heard, how expectations are set, and what actually holds groups together when pressure arrives.
-                </p>
-                <ul>
-                  <li>Decision-making, legitimacy, and trust</li>
-                  <li>Community dynamics, norms, and rupture points</li>
-                  <li>Why people join, why they leave, and what repair requires</li>
-                </ul>
-              </article>
-              <article class="topic-card" data-tag="AI">
-                <h3>AI and developer enablement</h3>
-                <p>
-                  Not just new tools, but the deeper workflow, role, and coordination changes that happen when AI enters software teams.
-                </p>
-                <ul>
-                  <li>Practical AI adoption for real organizations</li>
-                  <li>Developer experience and process redesign</li>
-                  <li>How teams become more capable without becoming more chaotic</li>
-                </ul>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <section>
-          <div class="wrap signals-grid">
-            <div class="section-card">
-              <div class="section-kicker">Subscriber pull</div>
-              <h3>What makes this page more likely to convert</h3>
-              <div class="signal-list">
-                <div class="signal">
-                  <strong>Sharper positioning</strong>
-                  Visitors understand the promise within seconds instead of piecing it together from category blurbs.
-                </div>
-                <div class="signal">
-                  <strong>Editorial authority</strong>
-                  The design feels like a publication with a point of view, which makes subscribing feel more worthwhile.
-                </div>
-                <div class="signal">
-                  <strong>Higher specificity</strong>
-                  Concrete examples help readers self-identify: “yes, this is for me.”
-                </div>
-                <div class="signal">
-                  <strong>Less template energy</strong>
-                  A custom page avoids the generic hosted-newsletter look and gives the project more identity.
-                </div>
-              </div>
-            </div>
-            <div class="quote-block">
+          <aside class="subscribe-card" id="subscribe">
+            <div class="subscribe-panel">
+              <h2>Subscribe</h2>
               <p>
-                The page should feel like an invitation into a way of seeing — not just a box that asks for an email address.
+                Get new writing in your inbox.
               </p>
-              <span class="micro">Design direction: editorial + systems-thinking + warm analytical depth</span>
-            </div>
-          </div>
-        </section>
-
-        <section id="faq">
-          <div class="wrap">
-            <div class="section-head">
-              <div>
-                <div class="section-kicker">SEO + clarity support</div>
-                <h2>FAQ section to catch hesitation and add semantic structure.</h2>
-              </div>
-              <p class="section-lead">
-                This gives readers useful context while also reinforcing the search terms and concepts the site should rank around.
-              </p>
-            </div>
-            <div class="faq-grid">
-              <article class="faq-item">
-                <h3>Who is this for?</h3>
-                <p>
-                  People working in and around engineering organizations, technical communities, open source, developer experience, and leadership roles — especially those navigating complex socio-technical systems.
-                </p>
-              </article>
-              <article class="faq-item">
-                <h3>What kind of writing is this?</h3>
-                <p>
-                  Essays, frameworks, field notes, and pattern analysis. The goal is useful clarity, not motivational fluff or trend-chasing.
-                </p>
-              </article>
-              <article class="faq-item">
-                <h3>Will it only be about AI?</h3>
-                <p>
-                  No. AI is one thread, but the broader focus is how people, tools, structures, and incentives interact inside organizations and communities.
-                </p>
-              </article>
-              <article class="faq-item">
-                <h3>Why subscribe instead of just following online?</h3>
-                <p>
-                  Because the newsletter is where the ideas get developed with more depth, continuity, and care. Social fragments are not the same thing.
-                </p>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <section>
-          <div class="wrap closing-card">
-            <div>
-              <div class="section-kicker">Final call to action</div>
-              <h3>Untangling Systems is a publication about how teams, tools, and communities really behave.</h3>
-              <p>
-                If that’s your kind of question, this page should make subscribing feel easy.
-                If you want, the next pass can wire in your real ConvertKit form, add issue/archive links, and tighten the copy against your actual voice.
-              </p>
-            </div>
-            <div class="form-card">
-              <h3>Ready for the live signup?</h3>
-              <p>Swap this placeholder with the production ConvertKit embed and publish on GitHub Pages.</p>
               <form>
                 <input type="email" placeholder="Email address" aria-label="Email address" />
-                <button type="submit">Join the newsletter</button>
+                <button type="submit">Subscribe with ConvertKit</button>
               </form>
+              <p class="small">
+                Replace this form with your ConvertKit embed or form action.
+              </p>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section" id="topics">
+        <div class="wrap">
+          <div class="section-heading">
+            <h2>Topics</h2>
+          </div>
+          <div class="topics-grid">
+            <article class="topic-card">
+              <h3>Engineering Leadership</h3>
+              <p>
+                Joining a team, creating a team and transforming a team. How to navigate the socio-technical systems where people and technology intersect.
+              </p>
+            </article>
+            <article class="topic-card">
+              <h3>Governance &amp; Community</h3>
+              <p>
+                How groups make decisions, set expectations, and collaborate together. Why people join, why they leave, and what holds communities together when it's hard.
+              </p>
+            </article>
+            <article class="topic-card">
+              <h3>AI &amp; Developer Enablement</h3>
+              <p>
+                How AI tools are reshaping development workflows and what that means for teams. Practical strategies for process improvement and enabling developers to do their best work.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="about">
+        <div class="wrap">
+          <div class="about-card">
+            <div>
+              <h2>About the newsletter</h2>
+              <p>
+                Untangling Systems and Patterns looks at the structures beneath how teams and communities operate: leadership, governance, coordination, expectations, and the tools that shape how work gets done.
+              </p>
+              <p>
+                The goal is to make those patterns easier to see and easier to work with.
+              </p>
+            </div>
+            <div class="about-side">
+              <strong>By Kate Chapman</strong>
+              <p>
+                Writing about engineering leadership, community systems, and the changing shape of development work.
+              </p>
             </div>
           </div>
-        </section>
-      </main>
-
-      <footer class="footer">
-        <div class="wrap footer-inner">
-          <span>Untangling Systems — publication-first, author-backed.</span>
-          <span>Drafted for GitHub Pages and ConvertKit integration.</span>
         </div>
-      </footer>
-    </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="wrap">Untangling Systems and Patterns</div>
+    </footer>
   </body>
 </html>
