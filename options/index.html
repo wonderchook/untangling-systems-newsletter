@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Untangling Systems — Design Options</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --lavender: #e8d4f2;
+        --purple: #69369e;
+        --purple-soft: #8a6bb3;
+        --white: #ffffff;
+        --gray: #656565;
+        --line: rgba(105, 54, 158, 0.16);
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: 'Source Sans 3', sans-serif;
+        background: linear-gradient(180deg, #f7f1fb 0%, #eadcf5 100%);
+        color: #2f1948;
+      }
+      .wrap { width: min(calc(100% - 2rem), 1180px); margin: 0 auto; }
+      header { padding: 2rem 0 1rem; }
+      h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 7vw, 5rem); margin: 0 0 0.5rem; }
+      p.lead { color: var(--gray); font-size: 1.1rem; max-width: 45rem; }
+      .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; padding: 1rem 0 3rem; }
+      .card {
+        background: rgba(255,255,255,0.82);
+        border: 1px solid var(--line);
+        border-radius: 1.5rem;
+        overflow: hidden;
+        box-shadow: 0 18px 40px rgba(105,54,158,0.1);
+      }
+      .thumb {
+        aspect-ratio: 16 / 10;
+        border-bottom: 1px solid var(--line);
+        display: grid;
+        place-items: center;
+        color: white;
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 2rem;
+        text-align: center;
+        padding: 1rem;
+      }
+      .card-body { padding: 1.2rem; }
+      .eyebrow { text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.8rem; font-weight: 700; color: var(--purple-soft); }
+      h2 { margin: 0.3rem 0 0.55rem; font-size: 1.6rem; }
+      p { margin: 0 0 0.7rem; color: var(--gray); }
+      a.button {
+        display: inline-block;
+        margin-top: 0.5rem;
+        text-decoration: none;
+        background: linear-gradient(135deg, var(--purple), var(--purple-soft));
+        color: white;
+        padding: 0.7rem 1rem;
+        border-radius: 999px;
+        font-weight: 700;
+      }
+      .opt1 { background: linear-gradient(135deg, #69369e, #bda3da); }
+      .opt2 { background: radial-gradient(circle at top left, rgba(255,255,255,0.2), transparent 30%), linear-gradient(135deg, #51306f, #8a6bb3); }
+      .opt3 { background: linear-gradient(180deg, #f0e7f8, #8a6bb3); color: #3f235f; }
+      .opt4 { background: linear-gradient(135deg, #7b55ad, #69369e 60%, #49226f); }
+      .opt5 { background: linear-gradient(135deg, #8a6bb3, #e8d4f2); color: #3f235f; }
+      @media (max-width: 860px) { .grid { grid-template-columns: 1fr; } }
+    </style>
+  </head>
+  <body>
+    <header class="wrap">
+      <div class="eyebrow">Untangling Systems</div>
+      <h1>Five landing page directions</h1>
+      <p class="lead">Different moods, same newsletter. Each option tweaks layout, tone, and emphasis while keeping your core themes: engineering leadership, governance and community, and AI developer enablement.</p>
+    </header>
+    <main class="wrap grid">
+      <article class="card">
+        <div class="thumb opt1">Option 1<br />Editorial / Soft Magazine</div>
+        <div class="card-body">
+          <div class="eyebrow">Warm + clear</div>
+          <h2>Editorial</h2>
+          <p>Elegant, readable, and publication-like. Strong typography, generous spacing, and a calm sense of authority.</p>
+          <p>Best if you want it to feel intelligent and inviting without being too severe or too startup-ish.</p>
+          <a class="button" href="option-1-editorial.html">Open option 1</a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="thumb opt2">Option 2<br />Systems Diagram / Analytical</div>
+        <div class="card-body">
+          <div class="eyebrow">Structured + crisp</div>
+          <h2>Systems diagram</h2>
+          <p>Leans into networks, relationships, and underlying structures. More “thinking model” than “magazine.”</p>
+          <p>Best if you want the site to feel like it belongs to someone who studies how organizations actually work.</p>
+          <a class="button" href="option-2-systems.html">Open option 2</a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="thumb opt3">Option 3<br />Minimal / Quiet Authority</div>
+        <div class="card-body">
+          <div class="eyebrow">Minimal + direct</div>
+          <h2>Quiet authority</h2>
+          <p>Stripped down, clean, and confident. Less decorative energy, more trust and clarity.</p>
+          <p>Best if you want the writing to do most of the work and avoid visual fuss.</p>
+          <a class="button" href="option-3-minimal.html">Open option 3</a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="thumb opt4">Option 4<br />Bold / Contemporary Publication</div>
+        <div class="card-body">
+          <div class="eyebrow">Sharper + louder</div>
+          <h2>Contemporary publication</h2>
+          <p>Bigger contrast, stronger blocks, more visual momentum. Still polished, but more assertive.</p>
+          <p>Best if you want more personality and more conversion energy without going full weird again.</p>
+          <a class="button" href="option-4-bold.html">Open option 4</a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="thumb opt5">Option 5<br />Image-led / Human Systems</div>
+        <div class="card-body">
+          <div class="eyebrow">Human + visual</div>
+          <h2>Image-led</h2>
+          <p>Uses photography/illustration placeholders to make the page feel more alive and less text-only.</p>
+          <p>Best if you want warmth, approachability, and room for visual storytelling.</p>
+          <a class="button" href="option-5-image.html">Open option 5</a>
+        </div>
+      </article>
+    </main>
+  </body>
+</html>
