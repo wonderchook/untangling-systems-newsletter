@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Option 8 — Quirky Systems</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+    <style>
+:root{--cream:#fffaf2;--paper:#fffdf8;--ink:#41314f;--plum:#7f53a7;--rose:#f49bc1;--peach:#ffc98e;--mint:#b7f0dc;--sky:#a8d9ff;--line:rgba(127,83,167,.18)}*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#fff9ef 0%,#ffeef6 48%,#eef7ff 100%);font-family:'DM Sans',sans-serif;color:var(--ink)}.wrap{width:min(calc(100% - 2rem),1160px);margin:0 auto;padding:1.25rem 0 3rem}.top{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:1rem}.eyebrow{text-transform:uppercase;letter-spacing:.1em;font-size:.8rem;font-weight:700;color:var(--plum)}.back{text-decoration:none;color:var(--plum);font-weight:700}.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:1rem}.panel{background:rgba(255,253,248,.86);border:1px solid var(--line);border-radius:2rem;padding:1.6rem;box-shadow:0 18px 40px rgba(127,83,167,.08)}h1,h2,h3{font-family:'Fraunces',serif;margin:0;line-height:.95}h1{font-size:clamp(3.8rem,8vw,6.2rem);max-width:10ch}.lede{font-size:1.1rem;line-height:1.7;color:#5b496a}.chips{display:flex;flex-wrap:wrap;gap:.6rem;margin:1rem 0 0}.chip{padding:.45rem .75rem;border-radius:999px;font-weight:700;font-size:.9rem}.c1{background:var(--mint)}.c2{background:var(--peach)}.c3{background:var(--sky)}.c4{background:#f8c7de}.actions{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.15rem}.btn{display:inline-block;text-decoration:none;padding:.85rem 1.1rem;border-radius:999px;font-weight:700}.primary{background:linear-gradient(135deg,var(--plum),#a170cf);color:#fff}.secondary{border:1px solid var(--line);color:var(--plum);background:transparent}.doodles{display:grid;grid-template-columns:repeat(2,1fr);gap:.8rem}.blob{border-radius:1.6rem;padding:1rem;min-height:150px;display:flex;align-items:end;font-family:'Fraunces',serif;font-size:1.6rem;line-height:1;background:var(--paper);border:1px solid var(--line);position:relative;overflow:hidden}.blob:before{content:'';position:absolute;width:120px;height:120px;border-radius:40% 60% 55% 45%;opacity:.55}.b1{background:linear-gradient(180deg,#fffdf8,#f3fffb)}.b1:before{background:var(--mint);top:-1rem;right:-1rem}.b2{background:linear-gradient(180deg,#fffdf8,#fff3fb)}.b2:before{background:var(--rose);bottom:-1.5rem;left:-1rem}.b3{background:linear-gradient(180deg,#fffdf8,#fff6ec)}.b3:before{background:var(--peach);top:-1.3rem;left:-1rem}.b4{background:linear-gradient(180deg,#fffdf8,#eff7ff)}.b4:before{background:var(--sky);bottom:-1rem;right:-1rem}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1rem}.card{background:rgba(255,253,248,.9);border:1px solid var(--line);border-radius:1.4rem;padding:1.2rem}.card h3{font-size:1.9rem;margin-bottom:.5rem}.card p{color:#64556f;line-height:1.65}@media(max-width:920px){.hero,.grid,.doodles{grid-template-columns:1fr}}
+</style>
+  </head>
+  <body>
+    <div class='wrap'>
+      <div class='top'>
+        <div class='eyebrow'>Option 8 · quirky</div>
+        <a class='back' href='index.html'>← Back to options</a>
+      </div>
+      <section class='hero'>
+        <div class='panel'>
+          <div class='eyebrow'>Untangling Systems</div>
+          <h1>Serious ideas, delightfully odd packaging.</h1>
+          <p class='lede'>This version keeps the content smart but loosens the tie a little. It feels observant, playful, and human — the kind of page that says “yes, systems are complicated, but we don’t have to present them like tax forms.”</p>
+          <div class='chips'>
+            <span class='chip c1'>teams</span>
+            <span class='chip c2'>governance</span>
+            <span class='chip c3'>communities</span>
+            <span class='chip c4'>AI workflows</span>
+          </div>
+          <div class='actions'>
+            <a class='btn primary' href='#'>Subscribe</a>
+            <a class='btn secondary' href='#topics'>Wander the topics</a>
+          </div>
+        </div>
+        <div class='doodles'>
+          <div class='blob b1'>Patterns hiding in plain sight</div>
+          <div class='blob b2'>Power, process, and people behaving strangely</div>
+          <div class='blob b3'>What teams need vs. what orgs optimize for</div>
+          <div class='blob b4'>AI tools in the actual wild</div>
+        </div>
+      </section>
+      <section class='grid' id='topics'>
+        <article class='card'><h3>Engineering Leadership</h3><p>How teams form, wobble, heal, and get their footing. Less management-speak, more useful pattern recognition.</p></article>
+        <article class='card'><h3>Governance &amp; Community</h3><p>How groups make decisions, create norms, and occasionally invent elaborate problems for themselves.</p></article>
+        <article class='card'><h3>AI &amp; Developer Enablement</h3><p>How new tools change the texture of development work, and what good support actually looks like when the ground keeps shifting.</p></article>
+      </section>
+    </div>
+  </body>
+</html>
